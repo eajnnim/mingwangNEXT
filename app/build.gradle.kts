@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.app_3"
+    namespace = "com.example.myapplication4"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.app_3"
+        applicationId = "com.example.myapplication4"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -33,13 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
+    implementation("com.google.mlkit:image-labeling:17.0.7")
 
+    implementation("com.google.android.gms:play-services-maps:19.2.0") // Google Maps SDK
+    implementation("com.google.android.gms:play-services-location:21.3.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

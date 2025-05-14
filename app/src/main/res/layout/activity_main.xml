@@ -1,68 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 1) 전체 배경 -->
-    <ImageView
-        android:id="@+id/bg"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/main_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    <!-- 지도 Fragment -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapView"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <!-- 2) 마이페이지 버튼 -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_mypage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11" />
-
-    <include
-        layout="@layout/mypage_card"
-        android:id="@+id/mypage_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_mypage" />
-
-    <!-- 2) 그린마켓 버튼 -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_market_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.572" />
-
-    <include
-        layout="@layout/market_card"
-        android:id="@+id/market_card"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_market_top" />
-
-    <!-- 2) 다이어리 버튼 -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_diary_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.742" />
-
-    <include
-        layout="@layout/diary_card"
-        android:id="@+id/diary_card"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline_diary_top" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

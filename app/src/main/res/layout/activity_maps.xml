@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapsActivity">
+
+    <!-- 지도 Fragment -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mapView"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Let's Throw 버튼 -->
+    <Button
+        android:id="@+id/throwButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's Throw!"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"
+        android:backgroundTint="#81C784"
+        android:textColor="#ffffff"
+        android:elevation="10dp"/>
+</FrameLayout>
