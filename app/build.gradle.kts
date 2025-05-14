@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.mlkit:image-labeling:17.0.7")
 
     implementation("com.google.android.gms:play-services-maps:19.2.0") // Google Maps SDK
     implementation("com.google.android.gms:play-services-location:21.3.0")
