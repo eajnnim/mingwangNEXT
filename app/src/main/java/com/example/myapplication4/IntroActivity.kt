@@ -12,7 +12,7 @@ class IntroActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.startMapButton)
         button.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
 
         }
