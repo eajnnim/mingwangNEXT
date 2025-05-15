@@ -19,7 +19,7 @@ class LoginNewActivity : AppCompatActivity() {
         val image4 = findViewById<ImageView>(R.id.image4)
 
         image4.setOnClickListener {
-            val intent = Intent(this, LoginNew2Activity::class.java)
+            val intent = Intent(this, LoginNew3Activity::class.java)
             startActivity(intent)
             finish()}
 

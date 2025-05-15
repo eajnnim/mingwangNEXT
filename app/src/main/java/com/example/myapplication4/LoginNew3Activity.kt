@@ -9,14 +9,14 @@ class LoginNew3Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_new3)
-        val backButtonArea2 = findViewById<View>(R.id.backButtonArea2)
+        val backButtonArea2 = findViewById<View>(R.id.previousButton)
         backButtonArea2.setOnClickListener {
-            val intent = Intent(this, LoginNew2Activity::class.java)
+            val intent = Intent(this, LoginNewActivity::class.java)
             startActivity(intent)
             finish() // 현재 액티비티 종료 = 뒤로가기
 
         }
-        val backButtonArea3 = findViewById<View>(R.id.backButtonArea3)
+        val backButtonArea3 = findViewById<View>(R.id.nextButton)
 
         backButtonArea3.setOnClickListener {
             val intent = Intent(this, LoginNew4Activity::class.java)

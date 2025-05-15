@@ -3,10 +3,9 @@ package com.example.myapplication4
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-<<<<<<< HEAD
+import android.view.animation.BounceInterpolator
+import android.view.animation.ScaleAnimation
 import android.widget.ImageView
-=======
->>>>>>> 0538b1d09e7771638e6f122e90f2ee85bee23707
 import androidx.appcompat.app.AppCompatActivity
 
 class IntroActivity : AppCompatActivity() {
@@ -14,13 +13,23 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
-<<<<<<< HEAD
+
         val button = findViewById<ImageView>(R.id.lets_throw)
-=======
-        val button = findViewById<Button>(R.id.startMapButton)
->>>>>>> 0538b1d09e7771638e6f122e90f2ee85bee23707
         button.setOnClickListener {
             val intent = Intent(this, MapsActivity::class.java)
+            button.setOnClickListener {
+                val bounce = ScaleAnimation(
+                    1f, 1.2f, // X: from 1x to 1.2x
+                    1f, 1.2f, // Y: from 1x to 1.2x
+                    ScaleAnimation.RELATIVE_TO_SELF, 0.5f, // 중심축 X
+                    ScaleAnimation.RELATIVE_TO_SELF, 0.5f  // 중심축 Y
+                ).apply {
+                    duration = 400
+                    interpolator = BounceInterpolator()
+                    fillAfter = true // 애니메이션 후 상태 유지
+                }
+                button.startAnimation(bounce)
+            }
             startActivity(intent)
 
         }
