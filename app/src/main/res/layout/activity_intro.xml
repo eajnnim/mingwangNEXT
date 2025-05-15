@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <!-- Auto layout, grids, variables, and unit scale are not yet supported -->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -75,3 +76,19 @@
     </RelativeLayout>
 
 </RelativeLayout>
+=======
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/startMapButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지도 열기" />
+</LinearLayout>
+>>>>>>> 0538b1d09e7771638e6f122e90f2ee85bee23707
