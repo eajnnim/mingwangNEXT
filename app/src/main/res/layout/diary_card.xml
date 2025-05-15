@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btn_diary"
+    android:layout_width="0dp"
+    android:layout_height="107dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    app:cardCornerRadius="20dp"
+    app:cardBackgroundColor="#08CA60"
+    app:cardElevation="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@id/guideline_diary_top">
+
+    <!-- 내부는 마음대로 배치 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <!-- 아이콘 -->
+        <ImageView
+            android:id="@+id/ic_diary"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/main_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!-- 1줄 설명 -->
+        <TextView
+            android:id="@+id/tv_sub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="5dp"
+            android:text="나는 얼마나\n거리를 깨끗하게 만들었을까?"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"
+
+            android:gravity="end"
+            android:textAlignment="viewEnd"
+
+            app:layout_constraintStart_toEndOf="@id/ic_diary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_diary"/>
+
+
+        <!-- 큰 타이틀 -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다이어리"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/ic_diary"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
