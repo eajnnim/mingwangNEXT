@@ -19,4 +19,5 @@
         android:textSize="18sp"
         android:textColor="#333333"
         android:text="결과" />
+
 </LinearLayout>

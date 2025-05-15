@@ -20,10 +20,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.label.ImageLabeling
@@ -42,6 +39,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        // 카메라 권한 요청
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                1002
+            )
+        }
 
         throwButton = findViewById(R.id.throwButton)
         throwButton.visibility = View.GONE
@@ -63,8 +70,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapView) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -117,7 +122,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
 
                     val nearbyLocations = listOf(
-                        Triple("카페 서울브루잉", 0.0007, 0.0007),
+                        Triple("sk미래관 중앙 지하", 0.0007, 0.0007),
                         Triple("편의점 CU 광화문점", -0.0006, 0.0009),
                         Triple("한솥도시락 시청점", 0.0008, -0.0008),
                         Triple("스타벅스 덕수궁점", -0.0009, -0.0005),
@@ -157,8 +162,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-
     private fun analyzeImage(bitmap: Bitmap) {
+
         val image = InputImage.fromBitmap(bitmap, 0)
         val options = ImageLabelerOptions.Builder()
             .setConfidenceThreshold(0.5f)
@@ -166,18 +171,64 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val labeler = ImageLabeling.getClient(options)
         labeler.process(image)
             .addOnSuccessListener { labels ->
-                val validLabels = listOf("cigarette", "plastic", "paper")
-                val matched = labels.any { label ->
-                    validLabels.any { keyword -> label.text.contains(keyword, ignoreCase = true) }
+                val matchedLabel = labels.find { label ->
+                    listOf("cigarette", "plastic", "paper", "cam").any { keyword ->
+                        label.text.contains(keyword, ignoreCase = true)
+                    }
+                }?.text
+
+                if (matchedLabel == null) {
+                    // ❌ 쓰레기 인식 실패 → FailActivity로 이동
+                    startActivity(Intent(this, FailActivity::class.java))
+                    return@addOnSuccessListener
                 }
 
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("result", matched)
-                startActivity(intent)
+                // ✅ 쓰레기 인식 성공
+                val (coin, exp) = when {
+                    matchedLabel.contains("cigarette", ignoreCase = true) -> 5 to 10
+                    matchedLabel.contains("cam", ignoreCase = true) -> 7 to 15
+                    matchedLabel.contains("plastic", ignoreCase = true) -> 2 to 5
+                    matchedLabel.contains("paper", ignoreCase = true) -> 1 to 2
+                    else -> 0 to 0
+                }
+
+                val locationName = lastSelectedMarkerTitle ?: "unknown"
+                val timestamp = System.currentTimeMillis()
+
+                updateStats(coin, exp)
+
+                val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+                prefs.edit().apply {
+                    putString("last_label", matchedLabel)
+                    putString("last_location", locationName)
+                    putLong("last_time", timestamp)
+                    putInt("last_coin", coin)
+                    putInt("last_exp", exp)
+                    apply()
+                }
+
+                // ✅ 인식 성공 → SuccessActivity로
+                startActivity(Intent(this, SuccessActivity::class.java))
             }
+
             .addOnFailureListener {
                 Toast.makeText(this, "분석 실패", Toast.LENGTH_SHORT).show()
             }
+    }
+
+
+    private fun updateStats(coin: Int, exp: Int) {
+        val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+        val currentCoin = prefs.getInt("coin", 0)
+        val currentExp = prefs.getInt("exp", 0)
+
+        prefs.edit().apply {
+            putInt("coin", currentCoin + coin)
+            putInt("exp", currentExp + exp)
+            apply()
+        }
+
+        Log.d("MapsActivity", "🪙 Coin: ${currentCoin + coin}, EXP: ${currentExp + exp}")
     }
 
     override fun onDestroy() {
