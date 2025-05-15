@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
+=======
+<!-- Auto layout, grids, variables, and unit scale are not yet supported -->
+>>>>>>> 08d91d3f5b4e722f186eb6e13724fb1c995882a2
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frame_1"
@@ -73,4 +77,8 @@
 
     </RelativeLayout>
 
+<<<<<<< HEAD
 </RelativeLayout>
+=======
+</RelativeLayout>
+>>>>>>> 08d91d3f5b4e722f186eb6e13724fb1c995882a2
