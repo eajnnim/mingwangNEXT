@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My Application4</string>
+    <string name="lets_throw_desc">주위 쓰레기통을 찾고 쓰레기 버리기를 인증합니다.</string>
 </resources>

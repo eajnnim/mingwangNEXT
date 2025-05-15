@@ -1,15 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Auto layout, grids, variables, and unit scale are not yet supported -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame_1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:background="#FFFFFF" >
 
-    <Button
-        android:id="@+id/startMapButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="지도 열기" />
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/top_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/home_top"
+            android:contentDescription="top_bar"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp">
+
+        <ImageView
+            android:id="@+id/lets_throw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/lets_throw"
+            android:contentDescription="@string/lets_throw_desc"
+            android:clickable="true"
+            android:focusable="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/green_market"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="450dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/green_market"
+            android:contentDescription="go to market" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/group_4"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="580dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/diary"
+            android:contentDescription="go to diary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
