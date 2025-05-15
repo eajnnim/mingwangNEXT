@@ -27,16 +27,22 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCZh3wZuJX4mxM5iapQB_32zupW9ukIqpg" />
 
-        <!-- ✅ IntroActivity 등록 (Launcher) -->
         <activity
-            android:name=".IntroActivity"
-
-        android:exported="true">
+            android:name=".LoginBackgroundActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginPastActivity"/>
+
+        <activity android:name=".LoginNewActivity"/>
+        <activity android:name=".LoginNew2Activity"/>
+        <activity android:name=".LoginNew3Activity"/><!--프로필 설정-->
+
+        <!-- ✅ IntroActivity 등록 (Launcher) -->
+        <activity android:name=".IntroActivity"/>
 
         <activity android:name=".MapsActivity" />
         <activity android:name=".ResultActivity" />

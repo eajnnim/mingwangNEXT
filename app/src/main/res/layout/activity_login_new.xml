@@ -1,0 +1,111 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_past_background">
+
+    <!-- 세로 정렬 요소들을 화면 중앙보다 약간 아래에 배치 -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- 이메일 입력 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_past_first"
+                android:scaleType="fitXY"
+                android:contentDescription="이메일 입력 배경" />
+
+            <EditText
+                android:id="@+id/emailEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="이메일 입력"
+                android:inputType="textEmailAddress"
+                android:padding="16dp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <!-- 비밀번호 입력 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_past_second"
+                android:scaleType="fitXY"
+                android:contentDescription="비밀번호 입력 배경" />
+
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="비밀번호 입력"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:inputType="textPassword" />
+        </FrameLayout>
+
+        <!-- 비밀번호 확인 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/password_check"
+                android:scaleType="fitXY"
+                android:contentDescription="비밀번호 확인 배경" />
+
+            <EditText
+                android:id="@+id/passwordCheckEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:hint="비밀번호 확인"
+                android:inputType="textPassword"
+                android:padding="16dp"
+                android:textColor="#000000" />
+        </FrameLayout>
+
+        <!-- 아래 버튼용 이미지 -->
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:src="@drawable/login_past_third"
+            android:scaleType="fitXY"
+            android:contentDescription="회원가입 버튼" />
+    </LinearLayout>
+    <View
+        android:id="@+id/backButtonArea"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="6dp"
+        android:background="@android:color/transparent" />
+
+</RelativeLayout>
