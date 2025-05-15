@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_21"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08CA60"
+    android:clipToOutline="true">
+
+    <ImageView
+        android:id="@+id/cleanLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_logo_small"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:contentDescription="Make It Clean 로고_small" />
+
+    <!-- 세로 정렬 요소들을 화면 중앙보다 약간 아래에 배치 -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="273dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="이메일 입력"
+            android:inputType="textEmailAddress"
+            android:textColor="#09000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="273dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="비밀번호 입력"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@+id/et_password_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_email"
+            app:layout_constraintVertical_bias="0.494" />
+
+        <EditText
+            android:id="@+id/et_password_confirm"
+            android:layout_width="273dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/et_nickname"
+            android:layout_width="273dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:hint="닉네임 입력"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- 아래 버튼용 이미지 -->
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_button"
+            android:contentDescription="회원가입 버튼" />
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/backButtonArea"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/backward_icon"
+        android:background="@android:color/transparent" />
+
+</RelativeLayout>

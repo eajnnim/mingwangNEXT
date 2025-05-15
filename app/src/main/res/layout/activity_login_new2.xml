@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_past_background">
+
+    <!-- 세로 정렬 요소들을 화면 중앙보다 약간 아래에 배치 -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- 이메일 입력 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/name"
+                android:scaleType="fitXY"
+                android:contentDescription="이름 입력 배경" />
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="이름(닉네임) 입력"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:inputType="textEmailAddress" />
+        </FrameLayout>
+
+        <!-- 비밀번호 입력 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/birth"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/birth"
+                android:scaleType="fitXY"
+                android:contentDescription="생일 입력 배경" />
+
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="생년월일 입력"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:inputType="textPassword" />
+        </FrameLayout>
+
+
+        <!-- 아래 버튼용 이미지 -->
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:src="@drawable/login_past_third"
+            android:scaleType="fitXY"
+            android:contentDescription="회원가입 버튼" />
+    </LinearLayout>
+    <View
+        android:id="@+id/backButtonArea"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="6dp"
+        android:background="@android:color/transparent" />
+
+</RelativeLayout>

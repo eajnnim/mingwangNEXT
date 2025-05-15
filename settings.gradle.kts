@@ -18,7 +18,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+rootProject.name = "My Application4"
+include(":app") // <- 반드시 필요!
 
-rootProject.name = "app_3"
-include(":app")
- 

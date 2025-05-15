@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_21"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#08CA60"
+    android:clipToOutline="true">
+
+    <ImageView
+        android:id="@+id/cleanLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_logo_small"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:contentDescription="Make It Clean 로고_small" />
+
+    <ImageView
+        android:id="@+id/setProfileMent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/set_your_profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:contentDescription="프로필 사진을 설정해주세요." />
+
+    <ImageView
+        android:id="@+id/backButtonArea"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/backward_icon"
+        android:background="@android:color/transparent" />
+
+    <!--프로필 바꾸는 곳-->
+    <ImageView
+        android:id="@+id/profileChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:contentDescription="프로필 사진 설정" />
+
+<!--뒤로-->
+    <LinearLayout
+        android:id="@+id/previousNextButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:gravity="center_horizontal">
+            <ImageView
+                android:id="@+id/previousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/left_button"
+                android:layout_marginEnd="60dp"
+                android:contentDescription="이전 버튼" />
+            <!--앞으로-->
+            <ImageView
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_button"
+                android:contentDescription="다음 버튼" />
+    </LinearLayout>
+</RelativeLayout>
