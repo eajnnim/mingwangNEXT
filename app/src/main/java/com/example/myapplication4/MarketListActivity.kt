@@ -10,7 +10,13 @@ class MarketListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_list) // XML 파일명 맞춰줘 (예: activity_market.xml)
+        val backButtonArea = findViewById<View>(R.id.backButtonArea)
 
+        backButtonArea.setOnClickListener {
+            val intent = Intent(this, IntroActivity::class.java)
+            startActivity(intent)
+            finish() // 현재 액티비티 종료 = 뒤로가기
+        }
         // 오른쪽 절반 View에 클릭 리스너 설정
         val rightHalfView = findViewById<View>(R.id.right_half)
         rightHalfView.setOnClickListener {

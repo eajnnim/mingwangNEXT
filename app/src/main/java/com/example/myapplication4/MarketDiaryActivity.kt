@@ -17,6 +17,13 @@ class MarketDiaryActivity : AppCompatActivity() {
             startActivity(Intent(this, MarketListActivity::class.java))
             finish()
         }
+        val backButtonArea = findViewById<View>(R.id.backButtonArea)
+
+        backButtonArea.setOnClickListener {
+            val intent = Intent(this, IntroActivity::class.java)
+            startActivity(intent)
+            finish() // 현재 액티비티 종료 = 뒤로가기
+        }
 
         loadPurchases()
     }

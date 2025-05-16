@@ -15,7 +15,13 @@ class MarketGumaeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_gumae)  // ← XML 레이아웃 파일명 정확히 맞춰줘
+        val backButtonArea = findViewById<View>(R.id.backButtonArea)
 
+        backButtonArea.setOnClickListener {
+            val intent = Intent(this, IntroActivity::class.java)
+            startActivity(intent)
+            finish() // 현재 액티비티 종료 = 뒤로가기
+        }
         val imageView = findViewById<ImageView>(R.id.menuImage)
         val nameTextView = findViewById<TextView>(R.id.menuName)
         val tagTextView = findViewById<TextView>(R.id.menuTag)
