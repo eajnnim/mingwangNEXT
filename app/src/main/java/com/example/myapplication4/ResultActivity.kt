@@ -2,9 +2,8 @@
 
 package com.example.myapplication4
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class ResultActivity : AppCompatActivity() {
@@ -15,18 +14,13 @@ class ResultActivity : AppCompatActivity() {
         val result = intent.getBooleanExtra("result", false)
         // 결과를 TextView 등에 표시
 
-        val resultText = findViewById<TextView>(R.id.resultText)
-        val resultImage = findViewById<ImageView>(R.id.resultImage)
 
         if (result) {
-            resultText.text = "✔ 해결되었습니다!\n코인이 적립되었습니다!"
+            startActivity(Intent(this, SuccessActivity::class.java))
         } else {
-            resultText.text = "❌ 인증되지 못했습니다\n다시 시도해주세요."
+            startActivity(Intent(this, FailActivity::class.java))
         }
 
-        // 일정 시간 후 자동 종료 (예: 2초)
-        resultImage.postDelayed({
             finish()
-        }, 2000)
     }
-} 
+}

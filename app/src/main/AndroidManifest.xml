@@ -42,11 +42,14 @@
         <activity android:name=".LoginNew3Activity"/><!--프로필 설정-->
 
         <!-- ✅ IntroActivity 등록 (Launcher) -->
+        <activity android:name=".LoginNew4Activity"/><!--프로필 설정-->
         <activity android:name=".IntroActivity"/>
 
         <activity android:name=".MapsActivity" />
         <activity android:name=".ResultActivity" />
 
+        <activity android:name=".SuccessActivity"/>
+        <activity android:name=".FailActivity"/>
 
     </application>
 

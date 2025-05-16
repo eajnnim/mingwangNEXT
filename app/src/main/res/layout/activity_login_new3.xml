@@ -31,7 +31,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:src="@drawable/backward_icon"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"/>
 
     <!--프로필 바꾸는 곳-->
     <ImageView
@@ -58,13 +60,17 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/left_button"
                 android:layout_marginEnd="60dp"
-                android:contentDescription="이전 버튼" />
+                android:contentDescription="이전 버튼"
+                android:clickable="true"
+                android:focusable="true"/>
             <!--앞으로-->
             <ImageView
                 android:id="@+id/nextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/right_button"
-                android:contentDescription="다음 버튼" />
+                android:contentDescription="다음 버튼"
+                android:clickable="true"
+                android:focusable="true"/>
     </LinearLayout>
 </RelativeLayout>

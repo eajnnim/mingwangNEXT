@@ -30,7 +30,9 @@
             android:layout_marginBottom="8dp"
             android:src="@drawable/login_first_second"
             android:adjustViewBounds="true"
-            android:contentDescription="login_second" />
+            android:contentDescription="login_second"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:id="@+id/loginThird"
@@ -39,14 +41,17 @@
             android:layout_marginBottom="14dp"
             android:adjustViewBounds="true"
             android:contentDescription="login_third"
-            android:src="@drawable/login_first_third" />
+            android:src="@drawable/login_first_third"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/login_first_forth"
             android:adjustViewBounds="true"
-            android:contentDescription="login_forth" />
+            android:contentDescription="login_forth"
+            android:clickable="false"/>
     </LinearLayout>
 
 </RelativeLayout>

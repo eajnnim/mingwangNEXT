@@ -31,7 +31,6 @@
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="@color/white"
             android:ems="10"
             android:hint="이메일 입력"
             android:inputType="textEmailAddress"
@@ -45,7 +44,6 @@
             android:layout_width="273dp"
             android:layout_height="50dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/white"
             android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:hint="비밀번호 입력"
@@ -62,7 +60,6 @@
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="@color/white"
             android:ems="10"
             android:hint="비밀번호 확인"
             android:inputType="textPassword"
@@ -90,7 +87,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/right_button"
-            android:contentDescription="회원가입 버튼" />
+            android:contentDescription="회원가입 버튼"
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/backButtonArea"
@@ -99,6 +98,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:src="@drawable/backward_icon"
-        android:background="@android:color/transparent" />
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"/>
 
 </RelativeLayout>

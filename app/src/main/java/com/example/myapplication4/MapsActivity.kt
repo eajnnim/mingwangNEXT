@@ -1,6 +1,8 @@
 package com.example.myapplication4
 
 import android.Manifest
+import android.widget.ImageView
+import android.widget.TextView
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -34,7 +36,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
-    private lateinit var throwButton: Button
+    private lateinit var throwButton: ImageView
+    private lateinit var throwButtonHolder: ImageView
+    private lateinit var trashcanInfo: TextView
     private var lastSelectedMarkerTitle: String? = null
 
     private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
@@ -42,9 +46,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+        val backButtonArea = findViewById<View>(R.id.backButtonArea)
 
-        throwButton = findViewById(R.id.throwButton)
+        backButtonArea.setOnClickListener {
+            val intent = Intent(this, IntroActivity::class.java)
+            startActivity(intent)
+            finish() // 현재 액티비티 종료 = 뒤로가기
+        }
+
+        // 카메라 권한 요청
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                1002
+            )
+        }
+
+        throwButton = findViewById<ImageView>(R.id.throwButton)
+        throwButtonHolder = findViewById<ImageView>(R.id.throwButtonHolder)
+        trashcanInfo = findViewById<TextView>(R.id.trashcanInfo)
         throwButton.visibility = View.GONE
+        throwButtonHolder.visibility = View.GONE
+        trashcanInfo.visibility = View.GONE
 
         throwButton.setOnClickListener {
             Log.d("MapsActivity", "✅ 버튼 클릭됨")
@@ -82,10 +107,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener { marker ->
             if (marker.title != "현재 위치") {
                 lastSelectedMarkerTitle = marker.title
-                throwButton.text = "Let's Throw at ${marker.title}!"
+                trashcanInfo.text = "${marker.title}"
+                trashcanInfo.visibility = View.VISIBLE
                 throwButton.visibility = View.VISIBLE
+                throwButtonHolder.visibility = View.VISIBLE
             } else {
+                trashcanInfo.visibility = View.GONE
                 throwButton.visibility = View.GONE
+                throwButtonHolder.visibility = View.GONE
             }
             false
         }
@@ -117,7 +146,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
 
                     val nearbyLocations = listOf(
-                        Triple("카페 서울브루잉", 0.0007, 0.0007),
+                        Triple("SK미래관 중앙 지하", 0.0007, 0.0007),
                         Triple("편의점 CU 광화문점", -0.0006, 0.0009),
                         Triple("한솥도시락 시청점", 0.0008, -0.0008),
                         Triple("스타벅스 덕수궁점", -0.0009, -0.0005),
@@ -166,18 +195,62 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val labeler = ImageLabeling.getClient(options)
         labeler.process(image)
             .addOnSuccessListener { labels ->
-                val validLabels = listOf("cigarette", "plastic", "paper")
-                val matched = labels.any { label ->
-                    validLabels.any { keyword -> label.text.contains(keyword, ignoreCase = true) }
+                val matchedLabel = labels.find { label ->
+                    listOf("cigarette", "plastic", "paper", "cam").any { keyword ->
+                        label.text.contains(keyword, ignoreCase = true)
+                    }
+                }?.text
+
+                if (matchedLabel == null) {
+                    // ❌ 쓰레기 인식 실패 → FailActivity로 이동
+                    startActivity(Intent(this, FailActivity::class.java))
+                    return@addOnSuccessListener
                 }
 
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("result", matched)
-                startActivity(intent)
+                // ✅ 쓰레기 인식 성공
+                val (coin, exp) = when {
+                    matchedLabel.contains("cigarette", ignoreCase = true) -> 5 to 10
+                    matchedLabel.contains("cam", ignoreCase = true) -> 7 to 15
+                    matchedLabel.contains("plastic", ignoreCase = true) -> 2 to 5
+                    matchedLabel.contains("paper", ignoreCase = true) -> 1 to 2
+                    else -> 0 to 0
+                }
+
+                val locationName = lastSelectedMarkerTitle ?: "unknown"
+                val timestamp = System.currentTimeMillis()
+
+                updateStats(coin, exp)
+
+                val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+                prefs.edit().apply {
+                    putString("last_label", matchedLabel)
+                    putString("last_location", locationName)
+                    putLong("last_time", timestamp)
+                    putInt("last_coin", coin)
+                    putInt("last_exp", exp)
+                    apply()
+                }
+
+                // ✅ 인식 성공 → SuccessActivity로
+                startActivity(Intent(this, SuccessActivity::class.java))
             }
             .addOnFailureListener {
                 Toast.makeText(this, "분석 실패", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun updateStats(coin: Int, exp: Int) {
+        val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+        val currentCoin = prefs.getInt("coin", 0)
+        val currentExp = prefs.getInt("exp", 0)
+
+        prefs.edit().apply {
+            putInt("coin", currentCoin + coin)
+            putInt("exp", currentExp + exp)
+            apply()
+        }
+
+        Log.d("MapsActivity", "🪙 Coin: ${currentCoin + coin}, EXP: ${currentExp + exp}")
     }
 
     override fun onDestroy() {

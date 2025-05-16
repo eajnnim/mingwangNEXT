@@ -1,43 +1,79 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_21"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/profile"
+    android:background="#08CA60"
+    android:clipToOutline="true">
+
+    <ImageView
+        android:id="@+id/cleanLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login_logo_small"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:contentDescription="Make It Clean 로고_small" />
+
+    <ImageView
+        android:id="@+id/submitCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/submit_code"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:contentDescription="프로필 사진을 설정해주세요." />
+
+
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="400dp"
+        android:gravity="center_horizontal">
 
 
 
+    <EditText
+        android:id="@+id/et_password_confirm"
+        android:layout_width="273dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:ems="10"
+        android:hint="인증번호 입력"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    >
+
     <!--뒤로-->
-    <View
-        android:id="@+id/backButtonArea2"
-        android:layout_width="197dp"
-        android:layout_height="174dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="474dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="6dp"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:focusable="true"
-        />
-    <!--앞으로-->
-    <View
-        android:id="@+id/backButtonArea3"
-        android:layout_width="129dp"
-        android:layout_height="145dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="207dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="507dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="6dp"
-        android:background="@android:color/transparent" />
+        <LinearLayout
+            android:id="@+id/previousNextButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="100dp"
+            android:gravity="center_horizontal">
 
-    <!--프로필 바꾸는 곳-->
+            <ImageView
+                android:id="@+id/previousButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/left_button"
+                android:layout_marginEnd="60dp"
+                android:contentDescription="이전 버튼" />
+            <!--앞으로-->
+            <ImageView
+                android:id="@+id/nextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_button"
+                android:contentDescription="다음 버튼" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
