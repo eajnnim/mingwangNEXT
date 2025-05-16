@@ -40,26 +40,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/green_market"
-<<<<<<< HEAD
             android:contentDescription="go to market"
             android:clickable="true"
             android:focusable="true"/>
-=======
-            android:contentDescription="go to market" />
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 
         <ImageView
             android:id="@+id/diary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/diary"
-<<<<<<< HEAD
             android:contentDescription="go to diary"
             android:clickable="true"
             android:focusable="true"/>
-=======
-            android:contentDescription="go to diary" />
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 
     </LinearLayout>
 </RelativeLayout>

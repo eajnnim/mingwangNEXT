@@ -15,10 +15,10 @@ class MarketGumaewanActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.market_gumaewan)
 
-        val imageRes = intent.getIntExtra("imageResId", 0)
+        val imageRes = intent.getIntExtra("imageRes", 0)
         val name = intent.getStringExtra("menuName") ?: ""
-        val tag = intent.getStringExtra("menuTag") ?: ""
-        val price = intent.getStringExtra("menuPrice") ?: ""
+        val tag = intent.getStringExtra("tag") ?: ""
+        val price = intent.getStringExtra("price") ?: ""
 
         val imageView = findViewById<ImageView>(R.id.finalImage)
         val nameView = findViewById<TextView>(R.id.finalmenuName)

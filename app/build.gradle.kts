@@ -1,10 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-<<<<<<< HEAD
     alias(libs.plugins.google.gms.google.services)
-=======
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 }
 
 android {
@@ -61,11 +58,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-<<<<<<< HEAD
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
-=======
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

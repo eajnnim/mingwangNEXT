@@ -41,15 +41,6 @@
             android:contentDescription="login_third"
             android:src="@drawable/login_first_third" />
 
-<<<<<<< HEAD
-=======
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/login_first_forth"
-            android:adjustViewBounds="true"
-            android:contentDescription="login_forth" />
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     </LinearLayout>
 
 </RelativeLayout>

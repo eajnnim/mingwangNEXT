@@ -29,18 +29,6 @@
                 android:scaleType="fitXY"
                 android:contentDescription="이름 입력 배경" />
 
-<<<<<<< HEAD
-=======
-            <EditText
-                android:id="@+id/nameEdit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="이름(닉네임) 입력"
-                android:background="@android:color/transparent"
-                android:padding="16dp"
-                android:textColor="#000000"
-                android:inputType="textEmailAddress" />
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
         </FrameLayout>
 
         <!-- 비밀번호 입력 -->

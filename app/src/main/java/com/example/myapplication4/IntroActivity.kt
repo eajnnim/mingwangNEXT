@@ -31,7 +31,6 @@ class IntroActivity : AppCompatActivity() {
                 button.startAnimation(bounce)
             }
             startActivity(intent)
-<<<<<<< HEAD
         }
 
         val marketButton = findViewById<ImageView>(R.id.green_market)
@@ -70,9 +69,6 @@ class IntroActivity : AppCompatActivity() {
                 diaryButton.startAnimation(bounce)
             }
             startActivity(intent3)
-=======
-
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
         }
     }
 }

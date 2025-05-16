@@ -1,11 +1,8 @@
 package com.example.myapplication4
 
 import android.Manifest
-<<<<<<< HEAD
 import android.widget.ImageView
 import android.widget.TextView
-=======
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -39,13 +36,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
-<<<<<<< HEAD
     private lateinit var throwButton: ImageView
     private lateinit var throwButtonHolder: ImageView
     private lateinit var trashcanInfo: TextView
-=======
-    private lateinit var throwButton: Button
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     private var lastSelectedMarkerTitle: String? = null
 
     private lateinit var cameraLauncher: ActivityResultLauncher<Intent>
@@ -53,7 +46,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
-<<<<<<< HEAD
         val backButtonArea = findViewById<View>(R.id.backButtonArea)
 
         backButtonArea.setOnClickListener {
@@ -95,15 +87,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d("MapsActivity", "✅ 버튼 클릭됨")
                 launchCamera()
             }
-=======
-
-        throwButton = findViewById(R.id.throwButton)
-        throwButton.visibility = View.GONE
-
-        throwButton.setOnClickListener {
-            Log.d("MapsActivity", "✅ 버튼 클릭됨")
-            launchCamera()
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
         }
 
         cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -137,7 +120,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.setOnMarkerClickListener { marker ->
             if (marker.title != "현재 위치") {
                 lastSelectedMarkerTitle = marker.title
-<<<<<<< HEAD
                 trashcanInfo.text = "${marker.title}"
                 trashcanInfo.visibility = View.VISIBLE
                 throwButton.visibility = View.VISIBLE
@@ -146,12 +128,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 trashcanInfo.visibility = View.GONE
                 throwButton.visibility = View.GONE
                 throwButtonHolder.visibility = View.GONE
-=======
-                throwButton.text = "Let's Throw at ${marker.title}!"
-                throwButton.visibility = View.VISIBLE
-            } else {
-                throwButton.visibility = View.GONE
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
             }
             false
         }
@@ -183,7 +159,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
 
                     val nearbyLocations = listOf(
-<<<<<<< HEAD
                         Triple("정운오IT교양관 지하 중앙", 37.58464437589525, 127.02845156886644),
                         Triple("정운오IT교양관 지상 1층", 37.58455421422469, 127.02870910414879),
                         Triple("정운오IT교양관 2층 출입구", 37.584534046410845, 127.02827603994534),
@@ -194,17 +169,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     for ((name, lat, lng) in nearbyLocations) {
                         val pos = LatLng(lat, lng)
-=======
-                        Triple("카페 서울브루잉", 0.0007, 0.0007),
-                        Triple("편의점 CU 광화문점", -0.0006, 0.0009),
-                        Triple("한솥도시락 시청점", 0.0008, -0.0008),
-                        Triple("스타벅스 덕수궁점", -0.0009, -0.0005),
-                        Triple("올리브영 종로점", 0.0006, -0.0003)
-                    )
-
-                    for ((name, latOffset, lngOffset) in nearbyLocations) {
-                        val pos = LatLng(currentLatLng.latitude + latOffset, currentLatLng.longitude + lngOffset)
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
                         mMap.addMarker(
                             MarkerOptions()
                                 .position(pos)
@@ -245,7 +209,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val labeler = ImageLabeling.getClient(options)
         labeler.process(image)
             .addOnSuccessListener { labels ->
-<<<<<<< HEAD
                 val matchedLabel = labels.find { label ->
                     listOf("cigarette", "plastic", "paper", "cam").any { keyword ->
                         label.text.contains(keyword, ignoreCase = true)
@@ -284,23 +247,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                 // ✅ 인식 성공 → SuccessActivity로
                 startActivity(Intent(this, SuccessActivity::class.java))
-=======
-                val validLabels = listOf("cigarette", "plastic", "paper")
-                val matched = labels.any { label ->
-                    validLabels.any { keyword -> label.text.contains(keyword, ignoreCase = true) }
-                }
-
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("result", matched)
-                startActivity(intent)
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
             }
             .addOnFailureListener {
                 Toast.makeText(this, "분석 실패", Toast.LENGTH_SHORT).show()
             }
     }
 
-<<<<<<< HEAD
     private fun updateStats(coin: Int, exp: Int) {
         val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
         val currentCoin = prefs.getInt("coin", 0)
@@ -315,8 +267,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         Log.d("MapsActivity", "🪙 Coin: ${currentCoin + coin}, EXP: ${currentExp + exp}")
     }
 
-=======
->>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     override fun onDestroy() {
         super.onDestroy()
         fusedLocationClient.removeLocationUpdates(locationCallback)
