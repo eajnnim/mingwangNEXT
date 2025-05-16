@@ -54,6 +54,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         throwButton.visibility = View.GONE
 
         throwButton.setOnClickListener {
+<<<<<<< HEAD
             val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
             val lastTime = prefs.getLong("last_time", 0L)
             val currentTime = System.currentTimeMillis()
@@ -69,6 +70,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.d("MapsActivity", "✅ 버튼 클릭됨")
                 launchCamera()
             }
+=======
+            Log.d("MapsActivity", "✅ 버튼 클릭됨")
+            launchCamera()
+>>>>>>> 79bed7b5019a3f5adb86d439a5392c4376388ada
         }
 
         cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -116,7 +121,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79bed7b5019a3f5adb86d439a5392c4376388ada
                 for (location in locationResult.locations) {
                     val currentLatLng = LatLng(location.latitude, location.longitude)
                     mMap.clear()
@@ -136,6 +144,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
 
                     val nearbyLocations = listOf(
+<<<<<<< HEAD
                         Triple("정운오IT교양관 지하 중앙", 37.58464437589525, 127.02845156886644),
                         Triple("정운오IT교양관 지상 1층", 37.58455421422469, 127.02870910414879),
                         Triple("정운오IT교양관 2층 출입구", 37.584534046410845, 127.02827603994534),
@@ -145,6 +154,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                     for ((name, lat, lng) in nearbyLocations) {
                         val pos = LatLng(lat, lng)
+=======
+                        Triple("sk미래관 중앙 지하", 0.0007, 0.0007),
+                        Triple("편의점 CU 광화문점", -0.0006, 0.0009),
+                        Triple("한솥도시락 시청점", 0.0008, -0.0008),
+                        Triple("스타벅스 덕수궁점", -0.0009, -0.0005),
+                        Triple("올리브영 종로점", 0.0006, -0.0003)
+                    )
+
+                    for ((name, latOffset, lngOffset) in nearbyLocations) {
+                        val pos = LatLng(currentLatLng.latitude + latOffset, currentLatLng.longitude + lngOffset)
+>>>>>>> 79bed7b5019a3f5adb86d439a5392c4376388ada
                         mMap.addMarker(
                             MarkerOptions()
                                 .position(pos)
