@@ -9,9 +9,12 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.2.1"
+<<<<<<< HEAD
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.2.0"
 firebaseDatabase = "21.0.0"
+=======
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -22,11 +25,17 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+<<<<<<< HEAD
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+=======
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+<<<<<<< HEAD
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+=======
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 

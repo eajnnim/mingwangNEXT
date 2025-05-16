@@ -46,6 +46,7 @@
 
         <activity android:name=".MapsActivity" />
         <activity android:name=".ResultActivity" />
+<<<<<<< HEAD
         <activity android:name=".SuccessActivity"/>
         <activity android:name=".FailActivity"/>
         <activity android:name=".MarketDiaryActivity"/>
@@ -53,6 +54,8 @@
         <activity android:name=".MarketGumaewanActivity"/>
         <activity android:name=".MarketListActivity"/>
         <activity android:name=".DiaryActivity"/>
+=======
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
 
 
     </application>

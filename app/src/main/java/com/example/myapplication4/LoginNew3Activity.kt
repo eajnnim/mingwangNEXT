@@ -19,7 +19,11 @@ class LoginNew3Activity : AppCompatActivity() {
         val backButtonArea3 = findViewById<View>(R.id.nextButton)
 
         backButtonArea3.setOnClickListener {
+<<<<<<< HEAD
             val intent = Intent(this, IntroActivity::class.java)
+=======
+            val intent = Intent(this, LoginNew4Activity::class.java)
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
             startActivity(intent)
 
         }

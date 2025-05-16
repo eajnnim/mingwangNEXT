@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
+<<<<<<< HEAD
     <solid android:color="#D1F0DF"/>
     <stroke android:width="1dp" android:color="#D1F0DF"/>
+=======
+    <solid android:color="@android:color/white"/>
+    <stroke android:width="1dp" android:color="#FFFFFF"/>
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     <corners android:radius="18dp"/>     <!-- 모서리 반경 지정 -->
     <padding
         android:left="12dp"

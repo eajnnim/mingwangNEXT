@@ -4,7 +4,10 @@
     android:background="@drawable/login_past_background">
 
     <!-- 세로로 나열된 입력 요소들을 화면 정중앙에 배치 -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
     <LinearLayout
         android:id="@+id/formContainer"
         android:layout_width="wrap_content"
@@ -15,6 +18,7 @@
         android:padding="24dp">
 
         <!-- 이메일 입력 필드 -->
+<<<<<<< HEAD
             <EditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
@@ -46,6 +50,60 @@
         <!-- 로그인 버튼 -->
         <Button
             android:id="@+id/btn_login"
+=======
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_past_first"
+                android:scaleType="fitXY"
+                android:contentDescription="이메일 입력 배경" />
+
+            <EditText
+                android:id="@+id/emailEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="이메일 입력"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:inputType="textEmailAddress" />
+        </FrameLayout>
+
+        <!-- 비밀번호 입력 필드 -->
+        <FrameLayout
+            android:layout_width="300dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_past_second"
+                android:scaleType="fitXY"
+                android:contentDescription="비밀번호 입력 배경" />
+
+            <EditText
+                android:id="@+id/passwordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="비밀번호 입력"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:textColor="#000000"
+                android:inputType="textPassword" />
+        </FrameLayout>
+
+        <!-- 로그인 버튼 -->
+        <Button
+            android:id="@+id/loginButton"
+>>>>>>> 04c7e34d0a2010c4fa2396c1bccae9bdb7913f17
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="로그인"
