@@ -90,15 +90,16 @@
             android:clickable="true"
             android:focusable="true"/>
     </LinearLayout>
+
     <ImageView
         android:id="@+id/backButtonArea"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:src="@drawable/backward_icon"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:src="@drawable/backward_icon" />
 
 </RelativeLayout>

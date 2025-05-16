@@ -40,7 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/green_market"
-            android:contentDescription="go to market" />
+            android:contentDescription="go to market"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageView
             android:id="@+id/diary"

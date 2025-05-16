@@ -31,7 +31,25 @@ class IntroActivity : AppCompatActivity() {
                 button.startAnimation(bounce)
             }
             startActivity(intent)
+        }
 
+        val marketButton = findViewById<ImageView>(R.id.green_market)
+        marketButton.setOnClickListener {
+            val intent2 = Intent(this, MarketListActivity::class.java)
+            marketButton.setOnClickListener {
+                val bounce = ScaleAnimation(
+                    1f, 1.2f, // X: from 1x to 1.2x
+                    1f, 1.2f, // Y: from 1x to 1.2x
+                    ScaleAnimation.RELATIVE_TO_SELF, 0.5f, // 중심축 X
+                    ScaleAnimation.RELATIVE_TO_SELF, 0.5f  // 중심축 Y
+                ).apply {
+                    duration = 400
+                    interpolator = BounceInterpolator()
+                    fillAfter = true // 애니메이션 후 상태 유지
+                }
+                marketButton.startAnimation(bounce)
+            }
+            startActivity(intent2)
         }
     }
 }

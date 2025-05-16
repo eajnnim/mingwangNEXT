@@ -51,6 +51,12 @@
         <activity android:name=".SuccessActivity"/>
         <activity android:name=".FailActivity"/>
 
+        <activity android:name=".MarketDiaryActivity"/>
+        <activity android:name=".MarketGumaeActivity"/>
+        <activity android:name=".MarketGumaewanActivity"/>
+        <activity android:name=".MarketListActivity"/>
+
+
     </application>
 
 </manifest>

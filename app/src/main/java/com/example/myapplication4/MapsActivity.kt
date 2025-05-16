@@ -72,8 +72,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         trashcanInfo.visibility = View.GONE
 
         throwButton.setOnClickListener {
-            Log.d("MapsActivity", "✅ 버튼 클릭됨")
-            launchCamera()
+            val prefs = getSharedPreferences("user_data", MODE_PRIVATE)
+            val lastTime = prefs.getLong("last_time", 0L)
+            val currentTime = System.currentTimeMillis()
+            val coolTimeMillis = 30 * 60 * 1000  // 30분 = 1800000ms
+
+            if (lastTime != 0L && currentTime - lastTime < coolTimeMillis) {
+                val remaining = (coolTimeMillis - (currentTime - lastTime)) / 1000  // 초 단위
+                val minutes = (remaining / 60).toInt()
+                val seconds = (remaining % 60).toInt()
+
+                Toast.makeText(this@MapsActivity, "⏳ 인증은 ${minutes}분 ${seconds}초 후에 다시 시도할 수 있습니다.", Toast.LENGTH_SHORT).show()
+            } else {
+                Log.d("MapsActivity", "✅ 버튼 클릭됨")
+                launchCamera()
+            }
         }
 
         cameraLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -146,15 +159,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     )
 
                     val nearbyLocations = listOf(
-                        Triple("SK미래관 중앙 지하", 0.0007, 0.0007),
-                        Triple("편의점 CU 광화문점", -0.0006, 0.0009),
-                        Triple("한솥도시락 시청점", 0.0008, -0.0008),
-                        Triple("스타벅스 덕수궁점", -0.0009, -0.0005),
-                        Triple("올리브영 종로점", 0.0006, -0.0003)
+                        Triple("정운오IT교양관 지하 중앙", 37.58464437589525, 127.02845156886644),
+                        Triple("정운오IT교양관 지상 1층", 37.58455421422469, 127.02870910414879),
+                        Triple("정운오IT교양관 2층 출입구", 37.584534046410845, 127.02827603994534),
+                        Triple("정운오IT교양관 중앙 계단", 37.584534046400845, 127.02857603994534),
+                        Triple("정운오IT교양관 3충 화장실", 37.58454421422469, 127.02860910414879)
                     )
 
-                    for ((name, latOffset, lngOffset) in nearbyLocations) {
-                        val pos = LatLng(currentLatLng.latitude + latOffset, currentLatLng.longitude + lngOffset)
+
+                    for ((name, lat, lng) in nearbyLocations) {
+                        val pos = LatLng(lat, lng)
                         mMap.addMarker(
                             MarkerOptions()
                                 .position(pos)
