@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "43527030623",
+    "firebase_url": "https://fir-register-225b5-default-rtdb.firebaseio.com",
+    "project_id": "fir-register-225b5",
+    "storage_bucket": "fir-register-225b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43527030623:android:50e22a717f5f8e32fe58ea",
+        "android_client_info": {
+          "package_name": "com.example.firebaseregister"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqqxgAj6_AHXfCHyMl1XKe0fyyXj0KjJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43527030623:android:d4bf2c5bed3e571cfe58ea",
+        "android_client_info": {
+          "package_name": "com.example.myapplication4"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqqxgAj6_AHXfCHyMl1XKe0fyyXj0KjJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
